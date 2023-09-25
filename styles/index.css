@@ -12,12 +12,13 @@ a{
     width: 100%;
     height: 100vh;
     background-image: 
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.344), rgb(7, 7, 7)),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgb(0, 0, 0, 0.45), rgb(0, 0, 0, 0.95)),
     url('../images/Wallpaper/1303476.jpeg');
     background-attachment: fixed;
     background-size: cover;
     padding:0px;
     overflow: auto;
+    position: relative;
 }
 
 .box-container{
@@ -79,6 +80,10 @@ ul li:hover{
     background-color: transparent;
     perspective: 1000px;
     margin-bottom: 5px;
+    animation: topfade 0.7s ease-in;
+    position: relative;
+    top: 0px;
+    cursor: pointer;
 }
 
 .card-inner{
@@ -106,11 +111,22 @@ ul li:hover{
     background-position: center;
     background-size: cover;
 }
+
 .back-card{
-    background-image: url('../images/OnePiece/back.jpg'); 
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('../images/OnePiece/back.jpg');
+    /* background-image: url('../images/OnePiece/back.jpg');  */
     background-position: center;
     background-size: cover;
     transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-card p{
+    color: white;
+    font-family: 'Poppins', serif;
+    margin: 0px 20px;
 }
 
 .title{
@@ -119,6 +135,14 @@ ul li:hover{
     font-size: 17px;
     font-family: 'Noto Serif', serif;
     letter-spacing: 1px;
+    animation: topfade 0.7s ease-in;
+    position: relative;
+    top: 0px;
+    cursor: pointer;
+}
+
+.card:hover + .title{
+    color: #ffb700;
 }
 
 .pagination{
@@ -146,4 +170,91 @@ ul li:hover{
 
 .pagination button:hover{
     color: #c10424;
+}
+
+.modal{
+    background-color: rgba(5, 5, 5, 0.3);
+    /* background-color: #c10424; */
+    position: absolute;
+    width:100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    transition: 0.5s ease-in;
+}
+
+.modal-box{
+    width: 60%;
+    min-width: 300px;
+    height: 500px;
+    display: flex;
+    gap: 30px;  
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px 30px;
+    border-radius: 20px;
+    align-items: center;
+    position: relative;
+    opacity: 0;
+}
+
+.modal-card{
+    height: 100%;   
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-title{
+    color:white;
+    font-family: 'Noto Serif', serif;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+
+.modal-type{
+    font-family: 'Rubik', serif;
+    font-size: 13px;
+    background-color: #ffb700;
+    color: #c10424;
+    width: max-content;
+    padding: 5px 15px;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    border: 1px solid #c1042498;
+    font-weight: bold;
+    margin: 0px 0px 25px;
+}
+
+.modal-description{
+    font-family: 'Poppins', serif;
+    color: white;
+    font-size: 16px;
+    text-align: justify;
+}
+
+.cross-icon{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cross-icon:hover{
+    transform: rotate(180deg);
+}
+
+@keyframes topfade {
+    0%{
+        top: 30px;
+        opacity: 0;
+    }
+    100%{
+        top: 0px;
+        opacity: 1;
+    }
 }

@@ -38,7 +38,7 @@ ul{
 }
 
 ul li{
-    font-size: clamp(16px, 3vw,20px);
+    font-size: clamp(16px, 2vw,20px);
     color: rgb(255, 255, 255);
     font-family: 'Concert One', cursive;
     letter-spacing: 1.5px;
@@ -118,20 +118,42 @@ ul li:hover{
 }
 
 .back-card{
-    background:linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),url('../images/OnePiece/back.jpg');
-    /* background-image: url('../images/OnePiece/back.jpg');  */
-    background-position: center;
-    background-size: cover;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg); 
+    position: relative;
+    background-color: rgb(253, 253, 253);
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.back-card div{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),url('../images/logo/wp10172380.jpg');
+    /* background-image: url('../images/OnePiece/back.jpg');  */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 97%;        
+    width: 97%;
+    position: absolute;
+    border-radius: 10px ;
+}
 
 .back-card p{
+    position: absolute;
     color: white;
     font-family: 'Poppins', serif;
-    margin: 0px 20px;
+    width: 90%;
+    height: 100%;
+    width: 90%;
+    border-radius: 10px ;   
+    /* top: 0; */
+    /* padding: 0px 20px; */
+    /* background-color: rgba(0, 0, 0, 0.32); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 8px solid #780000; */
+    /* height: 100%; */
+    /* border-radius: inherit; */
 }
 
 .title{
@@ -190,7 +212,6 @@ ul li:hover{
 
 .modal{
     background-color: rgba(5, 5, 5, 0.3);
-    /* background-color: #c10424; */
     animation: fadewide 1s ease-out;
 }
 
@@ -218,7 +239,7 @@ ul li:hover{
 }
 
 .modal-card{
-    height: 100%;   
+    height: 90%;   
     object-fit: cover;
     border-radius: 10px;
 }
@@ -226,7 +247,7 @@ ul li:hover{
 .modal-title{
     color:white;
     font-family: 'Noto Serif', serif;
-    font-size:clamp(25px, 5vw,60px);/*45px*/
+    font-size:clamp(30px, 4vw,50px);/*45px*/
     letter-spacing: 2px;
 }
 
@@ -247,7 +268,7 @@ ul li:hover{
 .modal-description{
     font-family: 'Poppins', serif;
     color: white;
-    font-size: clamp(14px,2vw,16px);
+    font-size: clamp(12px,2vw,16px);
     text-align: justify;
 }
 
@@ -265,6 +286,7 @@ ul li:hover{
     transform: rotate(180deg);
 }
 
+
 @keyframes topfade {
     0%{
         top: 30px;
@@ -276,10 +298,44 @@ ul li:hover{
     }
 }
 
-@media screen and (width <= 375px) {
+
+@media screen and (width <= 1366px){
+    .card-container{
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        margin-top: 30px;
+    }
+
+    .modal-box{
+        width: 80%;
+    }
+
+    .modal-card{
+        width: 250px;
+        height: 350px;
+    }
+
+    .modal-type{
+        font-size: 12px;
+    }
+
+    .pagination{
+        padding: 15px 0px 20px;
+    }
+
+    .modal-description{
+        font-size: 14px;
+    }
+}
+
+@media screen and (width <= 914px){
+    .card-container{
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+
     ul{
         padding:10px 0px;
-        gap: 10px;
+        justify-content: space-evenly;
+        gap: 0px;
     }
 
     ul li{
@@ -296,9 +352,15 @@ ul li:hover{
         margin-top: 30px;
     }
 
+    .modal-box{
+        width: 90%;
+    }
+}
+
+@media screen and (width <= 550px) {
     .card{
-        height: 280px;
-        width:180px;
+        height: 320px;
+        width:220px;
     }
     
     .card-container{
@@ -308,13 +370,14 @@ ul li:hover{
 
     .modal-box{
         height: max-content;
-        gap: 30px;  
-        padding: 50px 25px;
+        gap:20px;  
+        padding: 30px 25px;
         flex-direction: column;
         text-align: center;
     }
     
     .modal-card{
+        width: 150px;
         height:250px;   
     }
     
@@ -326,8 +389,13 @@ ul li:hover{
         width: 30px;
         height: 30px;
     }
+    .modal-description{
+        font-size: 14px;
+    }
+}
 
-    .pagination{
-        padding: 15px 0px 20px;
+@media screen and (width <= 360px) {
+    ul li{
+        font-size: 14px;
     }
 }

@@ -62,7 +62,7 @@ function fillCards(category, page) {
         setTimeout(() => {
 
             paginationtab.style.display = !cat && "none";
-            const { id, name } = char
+            const { id, name, short } = char
             const card = document.createElement('div')
 
             card.innerHTML =
@@ -71,7 +71,8 @@ function fillCards(category, page) {
                     <div class="card-inner">
                             <div class="front-card"></div>
                             <div class="back-card">
-                                <p>Monkey D. Luffy is the protagonist in One Piece and captain of the increasingly infamous and powerful Straw Hat Pirates.</p>
+                                <div></div>
+                                <p>${short}</p>
                             </div>
                         </div>
                     </div>
@@ -109,10 +110,10 @@ function opentab(charid) {
     container.style.overflow = "hidden";
 
     const datachar = characters.filter(e => e.id === charid)
-    const { id, name, type } = datachar[0]
+    const { id, name, type, description} = datachar[0]
     modalsChild[0].src = `./images/OnePiece/${id}.jpg`;
     modalsChild[1].textContent = name;
     modalsChild[2].textContent = type;
-    modalsChild[3].textContent = "Monkey D. Luffy is the protagonist in One Piece and captain of the increasingly infamous and powerful Straw Hat Pirates.";
+    modalsChild[3].textContent = description;
 }
 
